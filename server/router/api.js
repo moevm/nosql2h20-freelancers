@@ -25,7 +25,7 @@ router.get('/gethello', (req, res, next) => {
     else if (doc) jsonWrite(res, doc)
     else {
       hello.save(err => console.log(err))
-      jsonWrite(res, doc)
+      jsonWrite(res, hello)
     }
     
   })
