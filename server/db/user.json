@@ -1,0 +1,9 @@
+[{
+  "_id": {
+    "$oid": "5fbac0a4a145be1a58bdf258"
+  },
+  "login": "qwerty",
+  "pass": "testset",
+  "fio": "TestTT",
+  "balance": 123
+}]

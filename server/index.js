@@ -10,7 +10,9 @@ app.use(bodyParser.urlencoded({
 }))
 
 app.use('/api', userApi)
-
+app.use('/', (req, res, next) => {
+  res.send("Hi")
+})
 app.use((req, res, next) => {
   var err = new Error('This page not found')
   err.status = 404

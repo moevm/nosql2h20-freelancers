@@ -1,0 +1,22 @@
+[{
+  "_id": {
+    "$oid": "5fbac14ca145be1a58bdf259"
+  },
+  "workerId": "12345678",
+  "employerId": "12345678",
+  "currStatus": "12345678",
+  "taskInfo": "12345678",
+  "creationDate": {
+    "$date": "2020-11-19T21:00:00Z"
+  },
+  "finishDate": {
+    "$date": "2020-11-20T21:00:00Z"
+  },
+  "price": 12345,
+  "applicantsList": [
+    "12345678",
+    "12345677"
+  ],
+  "solutionLink": "12345678",
+  "type": "12345678"
+}]
