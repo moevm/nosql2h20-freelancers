@@ -1,8 +1,5 @@
 [{
-  "_id": {
-    "$oid": "5fbac2e5a145be1a58bdf25b"
-  },
-  "fromId": "12345678",
-  "toId": "12345678",
+  "fromLogin": "12345678",
+  "toLogin": "12345678",
   "value": 123
 }]

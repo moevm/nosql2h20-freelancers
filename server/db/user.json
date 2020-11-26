@@ -1,9 +1,24 @@
 [{
-  "_id": {
-    "$oid": "5fbac0a4a145be1a58bdf258"
-  },
-  "login": "qwerty",
-  "pass": "testset",
+  "login": "qqqqq",
+  "password": "testset1",
   "fio": "TestTT",
-  "balance": 123
+  "balance": 2000
+},
+{
+  "login": "wwwww",
+  "password": "testset2",
+  "fio": "BestBB",
+  "balance": 30000
+},
+{
+  "login": "eeeee",
+  "password": "testset3",
+  "fio": "EstHQ",
+  "balance": 100
+},
+{
+  "login": "rrrrr",
+  "password": "testset4",
+  "fio": "TqweTT",
+  "balance": 0
 }]
