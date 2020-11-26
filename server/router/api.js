@@ -139,12 +139,32 @@ const jsonWrite = (res, ret) => {
 // i dont understand
 
 
-// router.get('/user', (req, res, next) => {
-//   login = req.body.login
-//   req.body.userlogin
-//   ans = {}
-//   res.json(ans)
-// })
+router.get('/user', (req, res, next) => {
+  ans = {}
+  comms = []
+  
+  model.User.findOne({login: req.body.userlogin}, (err, doc) => {
+    if (err) console.log(err)
+    model.Comment.find({ownerId: login}, (err, doc1) => {
+      if (err) console.log(err)
+      if (doc1 !== null){
+        doc1.forEach(el => {
+          comms.push({authorId:el.authorId, comm: el.text})
+        });
+      }
+      model.Task.find({workerId:req.body.userlogin, employerId:req.body.login}, (err, doc2) => {
+        if (err) console.log(err)
+        ans = {
+          login:doc.login,
+          fio:doc.login,
+          comms: comms,
+          tasks: doc2
+        }
+        jsonWrite(res, ans)
+      })
+      })
+  })
+})
 
 
 
@@ -264,9 +284,6 @@ router.post('/addtask', function(req, res){
 });
 
 router.post('/respondtask', function(req, res){
-  req.body.employerLogin
-  req.body.taskid
-
   const filter = { _id: req.body.taskid };
   console.log(filter)
   model.Task.findOne(filter, (err, doc) => {
@@ -274,7 +291,7 @@ router.post('/respondtask', function(req, res){
     const z = doc.applicantsList
     z.push(req.body.employerLogin)
     const update = { applicantsList: z };
-    model.Task.updateOne(filter, update, {
+    model.Task.updateOne(filter, {$set: update}, {
       new: true
     },(err2,doc2)=>{
       if(err2) return console.log(err2);
@@ -288,7 +305,7 @@ router.post('/acceptrespond', function(req, res){
 
   const filter = { _id: req.body.taskid };  
   const update = { workerId: req.body.login, currStatus:"In progress" };
-  model.Task.updateOne(filter, update, {
+  model.Task.updateOne(filter, {$set: update}, {
       new: true
     },(err,doc)=>{
       if(err) return console.log(err);
@@ -297,14 +314,10 @@ router.post('/acceptrespond', function(req, res){
 });
 
 router.post('/sendtask', function(req, res){
-  req.body.employerLogin
-  req.body.taskid
-  req.body.solutionLink
-  req.body.comment
 
   const filter = { _id: req.body.taskid,employerId: req.body.employerLogin };  
   const update = { currStatus:"Done",finishDate: new Date().toJSON().slice(0,10).replace(/-/g,'/'), solutionLink:req.body.solutionLink };
-  model.Task.updateOne(filter, update, {
+  model.Task.updateOne(filter, {$set: update}, {
       new: true
     },(err,doc)=>{
       if(err) return console.log(err);
@@ -329,7 +342,28 @@ router.post('/sendtask', function(req, res){
 router.post('/paytask', function(req, res){
   req.body.taskid
   req.body.comment
+  model.Task.findOne({_id:req.body.taskid}, function(err, result){
+    if(err) return console.log(err);
+    new_trans = {
+      _id: new ObjectId(),
+      fromId: result.employerId,
+      toId: result.workerId,
+      value: result.price
+    }
+    model.User.updateOne({login: result.employerId},{$inc: {balance: -result.price}})
+    model.User.updateOne({login: result.workerId},{$inc: {balance: result.price}})
+    model.Task.updateOne({_id:req.body.taskid},{$set: {currStatus: "Finished"}})
+    model.Transaction.create(new_trans, function(err, result){
+      if(err) return console.log(err);
+      res.json({"status":"OK"})
+    }); 
+    })
   res.json({"status":"OK"})
 });
 
+
+router.post('/addbalance', function(req, res){
+  model.User.updateOne({login: req.body.login},{$inc: {balance: req.body.bal}})
+  res.json({"status":"OK"})
+});
 module.exports = router
