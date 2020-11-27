@@ -17,39 +17,35 @@ db.once('open', function () {
 
 
 const UserSchema = mongoose.Schema({
-        _id: mongoose.Schema.Types.ObjectId,
-        login: String,
-        pass: String,
-        fio: String,
-        balance: Number
+  login: String,
+  pass: String,
+  fio: String,
+  balance: Number
 })
 
 const TaskSchema = mongoose.Schema({
-        _id: mongoose.Schema.Types.ObjectId,
-        workerLogin: String,
-        employerLogin: String,
-        currStatus: String,
-        taskInfo: String,
-        creationDate: Date,
-        finishDate: Date,
-        price: Number,
-        applicantsList: [String],
-        solutionLink: String,
-        type: String
+  workerLogin: String,
+  employerLogin: String,
+  currStatus: String,
+  taskInfo: String,
+  creationDate: Date,
+  finishDate: Date,
+  price: Number,
+  applicantsList: [String],
+  solutionLink: String,
+  type: String
 })
 
 const CommentSchema = mongoose.Schema({
-        _id: mongoose.Schema.Types.ObjectId,
-        ownerLogin: String,
-        authorLogin: String,
-        text: String
+  ownerLogin: String,
+  authorLogin: String,
+  text: String
 })
 
 const TransactionSchema = mongoose.Schema({
-        _id: mongoose.Schema.Types.ObjectId,
-        fromLogin: String,
-        toLogin: String,
-        value: Number
+  fromLogin: String,
+  toLogin: String,
+  value: Number
 })
 
 const Models = {
