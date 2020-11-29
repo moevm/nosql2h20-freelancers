@@ -1,0 +1,30 @@
+[{
+  "login": "admin",
+  "password": "admin",
+  "fio": "TestTT",
+  "balance": 999999
+},
+{
+  "login": "qqqqq",
+  "password": "qqqqq",
+  "fio": "TestTT",
+  "balance": 2000
+},
+{
+  "login": "wwwww",
+  "password": "wwwww",
+  "fio": "BestBB",
+  "balance": 30000
+},
+{
+  "login": "eeeee",
+  "password": "eeeee",
+  "fio": "EstHQ",
+  "balance": 100
+},
+{
+  "login": "rrrrr",
+  "password": "rrrrr",
+  "fio": "TqweTT",
+  "balance": 0
+}]

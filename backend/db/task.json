@@ -1,0 +1,47 @@
+[{
+  "workerLogin": "",
+  "employerLogin": "wwwww",
+  "currStatus": "waiting",
+  "taskInfo": "12345678",
+  "creationDate": "",
+  "finishDate": "",
+  "price": 500,
+  "applicantsList": [
+    "rrrrr",
+    "eeeee"
+  ],
+  "solutionLink": "",
+  "type": "IT"
+},
+{
+  "workerLogin": "qqqqq",
+  "employerLogin": "wwwww",
+  "currStatus": "done",
+  "taskInfo": "87654321",
+  "creationDate": "",
+  "finishDate": "",
+  "price": 500,
+  "applicantsList": [
+    "qqqqq",
+    "eeeee"
+  ],
+  "solutionLink": "",
+  "type": "Design"
+},
+{
+  "workerLogin": "rrrrr",
+  "employerLogin": "wwwww",
+  "currStatus": "in-progress",
+  "taskInfo": "update new xsd file",
+  "creationDate": "",
+  "finishDate": "",
+  "price": 5100,
+  "applicantsList": [
+    "qqqqq",
+    "eeeee",
+    "rrrrr"
+  ],
+  "solutionLink": "",
+  "type": "IT"
+}
+]
