@@ -1,20 +1,10 @@
 [{
-  "fromLogin": "qqqqq",
-  "toLogin": "wwwww",
-  "value": 123
+  "fromLogin": "flancer4",
+  "toLogin": "flancer2",
+  "value": 2000
 },
 {
-  "fromLogin": "eeeee",
-  "toLogin": "rrrrr",
-  "value": 123
-},
-{
-  "fromLogin": "wwwww",
-  "toLogin": "eeeee",
-  "value": 123
-},
-{
-  "fromLogin": "qqqqq",
-  "toLogin": "eeeee",
-  "value": 123
+  "fromLogin": "flancer2",
+  "toLogin": "flancer1",
+  "value": 2000
 }]

@@ -1,47 +1,109 @@
 [{
-  "workerLogin": "",
-  "employerLogin": "wwwww",
-  "currStatus": "waiting",
-  "taskInfo": "12345678",
-  "creationDate": "",
+  "workerLogin": "flancer2",
+  "employerLogin": "flancer4",
+  "currStatus": "in-progress",
+  "taskInfo": "Дописать реферат по Менеджменту по теме блабла",
+  "creationDate": "2020-11-30T03:10:44.612Z",
   "finishDate": "",
-  "price": 500,
+  "price": 2000,
   "applicantsList": [
-    "rrrrr",
-    "eeeee"
+    "flancer2",
+    "flancer5"
+  ],
+  "solutionLink": "",
+  "type": "Menegmen report"
+},
+{
+  "workerLogin": "flancer2",
+  "employerLogin": "flancer4",
+  "currStatus": "finished",
+  "taskInfo": "Дописать реферат по БЖД по теме блабла",
+  "creationDate": "2020-11-30T03:10:44.612Z",
+  "finishDate": "2020-11-30T03:13:44.612Z",
+  "price": 2000,
+  "applicantsList": [
+    "flancer2",
+    "flancer3"
+  ],
+  "solutionLink": "",
+  "type": "BZD report"
+},
+{
+  "workerLogin": "flancer1",
+  "employerLogin": "flancer2",
+  "currStatus": "finished",
+  "taskInfo": "Настроить докер для моего проекта",
+  "creationDate": "2020-11-30T03:10:44.612Z",
+  "finishDate": "2020-11-30T03:16:44.612Z",
+  "price": 2000,
+  "applicantsList": [
+    "flancer1",
+    "flancer3",
+    "flancer5"
+  ],
+  "solutionLink": "",
+  "type": "Docker"
+},
+{
+  "workerLogin": "",
+  "employerLogin": "flancer4",
+  "currStatus": "waiting",
+  "taskInfo": "Настроить докер для моего проекта",
+  "creationDate": "2020-11-30T03:10:44.612Z",
+  "finishDate": "",
+  "price": 2000,
+  "applicantsList": [
+    "flancer1",
+    "flancer3"
+  ],
+  "solutionLink": "",
+  "type": "Docker"
+},
+{
+  "workerLogin": "",
+  "employerLogin": "flancer3",
+  "currStatus": "waiting",
+  "taskInfo": "Сверстать страницу - макет по адрессу https://figma.com/qwerty",
+  "creationDate": "2020-11-30T03:10:44.612Z",
+  "finishDate": "",
+  "price": 1000,
+  "applicantsList": [
+    "flancer1",
+    "flancer2"
   ],
   "solutionLink": "",
   "type": "IT"
 },
 {
-  "workerLogin": "qqqqq",
-  "employerLogin": "wwwww",
+  "workerLogin": "flancer3",
+  "employerLogin": "flancer2",
   "currStatus": "done",
-  "taskInfo": "87654321",
-  "creationDate": "",
+  "taskInfo": "Перерисовать картинку для работы",
+  "creationDate": "2020-11-28T03:12:44.612Z",
   "finishDate": "",
   "price": 500,
   "applicantsList": [
-    "qqqqq",
-    "eeeee"
+    "flancer3",
+    "flancer5",
+    "flancer1"
   ],
   "solutionLink": "",
-  "type": "Design"
+  "type": "Design Art"
 },
 {
-  "workerLogin": "rrrrr",
-  "employerLogin": "wwwww",
+  "workerLogin": "flancer4",
+  "employerLogin": "flancer1",
   "currStatus": "in-progress",
-  "taskInfo": "update new xsd file",
-  "creationDate": "",
+  "taskInfo": "Рефактор моего кода - файл по ссылке http://example.com",
+  "creationDate": "2020-11-29T03:13:44.612Z",
   "finishDate": "",
   "price": 5100,
   "applicantsList": [
-    "qqqqq",
-    "eeeee",
-    "rrrrr"
+    "flancer4",
+    "flancer3",
+    "flancer5",
+    "flancer2"
   ],
   "solutionLink": "",
   "type": "IT"
-}
-]
+}]

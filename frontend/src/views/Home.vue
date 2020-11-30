@@ -5,7 +5,13 @@
     <div class="d-flex" style="align-items: center;">
       <span>Тип:</span> <b-form-input class="finput" style="max-width: unset;" type="text" v-model="ftype"></b-form-input>
     </div>
-
+    <b-form-checkbox
+      v-model="isF"
+      value="1"
+      unchecked-value="0"
+    >
+      Показать только свободные задачи
+    </b-form-checkbox>
     <div>
       Цена от <b-form-input class="finput" type="number" v-model="ffrom"></b-form-input>
       до <b-form-input class="finput" type="number" v-model="fto"></b-form-input>
@@ -14,7 +20,15 @@
 
   <router-link class="task a-shadow a-shadow-hov" :to="'/task?id='+ task._id" v-for="task of filteredTasks" :key="task._id.$oid">
       <div class="jc-btw">
-        <user-link :login="task.employerLogin" :fullPath="true"></user-link>
+        <div>
+          <user-link :login="task.employerLogin" :fullPath="true"></user-link> 
+          <b-button class="tagb" :id="'tooltip' + task._id" :variant="colorByStatus(task.currStatus).v">
+
+          </b-button>
+          <b-tooltip :target="'tooltip' + task._id" triggers="hover">
+            <b>{{colorByStatus(task.currStatus).t}}</b>
+          </b-tooltip>
+        </div>
         <div class="task-price">
           {{task.price}} руб.
         </div>
@@ -39,6 +53,7 @@ export default {
       ftype: '',
       ffrom: 0,
       fto: 0,
+      isF: 0,
       show: false
     }
   },
@@ -47,7 +62,11 @@ export default {
   },
   computed: {
     filteredTasks() {
-      return this.tasks.filter(t => (t.type.toLowerCase().includes(this.ftype.trim().toLowerCase())) && t.price >= this.ffrom && t.price <= this.fto)
+      console.log(this.isF);
+      return this.tasks.filter(t => (t.type.toLowerCase().includes(this.ftype.trim().toLowerCase())) 
+      && t.price >= this.ffrom && t.price <= this.fto 
+      && (+this.isF ? (t.currStatus !== 'done' && t.currStatus !== 'finished' && t.currStatus !== 'in-progress') : true)
+      )
     }
   },
   created () {
@@ -61,8 +80,10 @@ export default {
       })
   },
   methods: {
-    addTask() {
-      this.show = true
+    colorByStatus(st) {
+      if (st == 'finished' || st == 'done') return {v: 'dark', t: 'Завершенная'}
+      else if (st == 'in-progress') return {v: 'warning', t: 'В процессе выполнения'}
+      else if (st == 'waiting') return {v: 'success', t: 'В поисках фрилансера'}
     }
   }
 }
@@ -81,5 +102,11 @@ export default {
 .filter {
   align-items: center;
   margin-bottom: 10px;
+}
+.tagb {
+  padding: 0;
+  margin-left: 5px;
+  width: 20px;
+  height: 20px;
 }
 </style>

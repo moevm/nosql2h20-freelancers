@@ -1,15 +1,20 @@
 [{
-  "ownerLogin": "qqqqq",
-  "authorLogin": "wwwww",
-  "text": "good worker!"
+  "ownerLogin": "flancer4",
+  "authorLogin": "flancer2",
+  "text": "Хороший фрилансер знающий свое дело! Спасибо за реферат."
 },
 {
-  "ownerLogin": "eeeee",
-  "authorLogin": "wwwww",
-  "text": "Do his worst!"
+  "ownerLogin": "flancer2",
+  "authorLogin": "flancer1",
+  "text": "Спасибо за проделанную работу!"
 },
 {
-  "ownerLogin": "wwwww",
-  "authorLogin": "qqqqq",
-  "text": "Good employer!"
+  "ownerLogin": "flancer2",
+  "authorLogin": "flancer4",
+  "text": "Шедрый пользователь! за такую легкую задачу.."
+},
+{
+  "ownerLogin": "flancer1",
+  "authorLogin": "flancer2",
+  "text": "Спасибо за интересную задачу, а вот цена у нее не очень была."
 }]

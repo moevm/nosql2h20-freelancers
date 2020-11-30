@@ -7,6 +7,11 @@ const init_tasks = require('../db/task.json')
 const init_comms = require('../db/comment.json')
 const init_trans = require('../db/transaction.json')
 
+const crypt = require('../encryption')
+init_users.forEach(u =>{
+  const pwd = crypt.encrypt(u.password)
+  u.password = pwd
+})
 
 db.on('error', function () {
   console.log('Connect error')
@@ -18,7 +23,7 @@ db.once('open', function () {
 
 const UserSchema = mongoose.Schema({
   login: String,
-  pass: String,
+  password: String,
   fio: String,
   balance: Number
 })

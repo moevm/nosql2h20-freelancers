@@ -5,26 +5,32 @@
   "balance": 999999
 },
 {
-  "login": "qqqqq",
-  "password": "qqqqq",
-  "fio": "TestTT",
+  "login": "flancer1",
+  "password": "1111",
+  "fio": "Михаил Иванов Иванович",
   "balance": 2000
 },
 {
-  "login": "wwwww",
-  "password": "wwwww",
-  "fio": "BestBB",
+  "login": "flancer2",
+  "password": "2222",
+  "fio": "Никита Сергеев Сергеевич",
   "balance": 30000
 },
 {
-  "login": "eeeee",
-  "password": "eeeee",
-  "fio": "EstHQ",
-  "balance": 100
+  "login": "flancer3",
+  "password": "3333",
+  "fio": "Олег Васильев Васильвич",
+  "balance": 1600
 },
 {
-  "login": "rrrrr",
-  "password": "rrrrr",
-  "fio": "TqweTT",
+  "login": "flancer4",
+  "password": "4444",
+  "fio": "Дима Вадимов Вадимович",
+  "balance": 3000
+},
+{
+  "login": "flancer5",
+  "password": "5555",
+  "fio": "Валера Макаров Макарович",
   "balance": 0
 }]

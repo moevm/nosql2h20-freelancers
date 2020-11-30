@@ -1,9 +1,8 @@
 const express = require('express')
 const router = express.Router()
 
-const crypto = require('crypto')
 const model = require('../db/index.js')
-
+const crypt = require('../encryption')
 const createToken = require('../middleware/createToken.js')
 const checkToken = require('../middleware/checkToken.js')
 
@@ -23,10 +22,8 @@ router.post('/useradd', (req, res, next) => {
 
   const login = params.login
   const pwd = params.password
-  const md5 = crypto.createHash('md5')
   const fio = params.fio
-  const password = md5.update(pwd).digest('hex')
-
+  const password = crypt.encrypt(pwd)
   const user = new model.User({
     login,
     password,
@@ -34,7 +31,6 @@ router.post('/useradd', (req, res, next) => {
     balance: 0,
     token: createToken(login)
   })
-
   if (/^[a-zA-Z0-9]{3,12}$/.test(login) && /^[a-zA-Z0-9]{3,12}$/.test(pwd)) {
     model.User.findOne({
       login: user.login
@@ -82,9 +78,7 @@ router.post('/login', (req, res, next) => {
   const params = req.body
   const login = params.login
   const pwd = params.password
-  const md5 = crypto.createHash('md5')
-  const password = md5.update(pwd).digest('hex')
-
+  const password = crypt.encrypt(pwd)
   const user = new model.User({
     login,
     password,
@@ -170,7 +164,6 @@ router.get('/task', (req, res, next) => {
 router.post('/task', (req, res, next) => {
   model.Task.findOne({_id: req.body.taskId}, (err, doc) => {
     if (err) console.log(err)
-    console.log(doc);
     jsonWrite(res, doc)
   })
 })
@@ -260,7 +253,10 @@ router.get('/db', (req, res, next) => {
                   user:doc,
                   tasks:doc1,
                   comments:doc2,
-                  transaction:doc3
+                  transaction:doc3,
+                  
+                  iv: crypt.iv,
+                  key: crypt.key
                 }
                 jsonWrite(res,ans)
               }})
