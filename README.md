@@ -1,16 +1,20 @@
 # nosql2h20-freelancers
 
 
-# Запустить сервер
+## Запустить сервер
 ```
+cd backend
+npm i
 npm run server
 ```
-# Запустить фронтенд на localhost:8080
+## Запустить фронтенд
 ```
+cd frontend
+npm i
 npm run client
 ```
 
-# Запуск проекта:
+## Запуск проекта:
 ```
 sudo docker-compose up --build
 ```
