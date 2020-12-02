@@ -15,3 +15,5 @@ services:
   db:
     image: mongo:latest
     container_name: docker_db
+    ports:
+      - "27017:27017"
