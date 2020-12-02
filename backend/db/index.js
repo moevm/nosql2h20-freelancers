@@ -1,5 +1,8 @@
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://127.0.0.1:27017/database1')
+//const options = { useNewUrlParser: true, reconnectTries: Number.MAX_VALUE, //reconnectInterval: 500, connectTimeoutMS: 10000, };
+//mongoose.connect('mongodb://mongo:27017/database1', options)
+//.then( function() { console.log('MongoDB is connected'); }) .catch( function(err) { console.log(err); });
+
 const db = mongoose.connection
 mongoose.Promise = require("bluebird")
 const init_users = require('../db/user.json')
@@ -13,12 +16,12 @@ init_users.forEach(u =>{
   u.password = pwd
 })
 
-db.on('error', function () {
-  console.log('Connect error')
-})
-db.once('open', function () {
-  console.log('Mongodb started successfully')
-})
+//db.on('error', function () {
+//  console.log('Connect error')
+//})
+//db.once('open', function () {
+//  console.log('Mongodb started successfully')
+//})
 
 
 const UserSchema = mongoose.Schema({

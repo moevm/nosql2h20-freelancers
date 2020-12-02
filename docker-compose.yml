@@ -1,4 +1,4 @@
-version: "3"
+version: "2"
 services:
   server:
     build: backend/
@@ -14,4 +14,8 @@ services:
     container_name: docker_client
   db:
     image: mongo:latest
+<<<<<<< HEAD
+    container_name: mongo_db
+=======
     container_name: docker_db
+>>>>>>> 5b76b1f18f0f7f73e97c3735b5e5cc35c38f19f4

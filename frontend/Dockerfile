@@ -1,4 +1,4 @@
-FROM node:12-alpine AS builder
+FROM node:12-alpine as builder
 RUN npm install -g http-server
 WORKDIR /app
 COPY package.json /app/package.json

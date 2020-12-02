@@ -40,49 +40,49 @@ instance.interceptors.response.use(
     }
     return Promise.reject(error.response)
 })  
-
+const url = 'http://localhost:3000'
 export default {
   UserAdd (data) {
-    return instance.post('/api/useradd', data)
+    return instance.post(url + '/api/useradd', data)
   },
   UserLogin (data) {
-    return instance.post('/api/login', data)
+    return instance.post(url + '/api/login', data)
   },
   GetUser (data) {
     console.log(data);
-    return instance.post('/api/user', data)
+    return instance.post(url + '/api/user', data)
   },
   GetTasks () {
-    return instance.get('/api/task')
+    return instance.get(url + '/api/task')
   },
   getTaskById(data) {
-    return instance.post('/api/task', data)
+    return instance.post(url + '/api/task', data)
   },
   getProfile (data) {
-    return instance.post('/api/profile', data)
+    return instance.post(url + '/api/profile', data)
   },
   addTask(data) {
-    return instance.post('/api/addtask', data)
+    return instance.post(url + '/api/addtask', data)
   },
   sendTask(data) {
-    return instance.post('/api/sendtask', data)
+    return instance.post(url + '/api/sendtask', data)
   },
   payTask(data) {
-    return instance.post('/api/paytask', data)
+    return instance.post(url + '/api/paytask', data)
   },
   addBalance(data) {
-    return instance.post('/api/addbalance', data)
+    return instance.post(url + '/api/addbalance', data)
   },
   acceptRespond(data) {
-    return instance.post('/api/acceptrespond', data)
+    return instance.post(url + '/api/acceptrespond', data)
   },
   respondTask(data) {
-    return instance.post('/api/respondtask', data)
+    return instance.post(url + '/api/respondtask', data)
   },
   getDb() {
-    return instance.get('/api/db')
+    return instance.get(url + '/api/db')
   },
   refreshDb(data) {
-    return instance.post('/api/refreshdb', data)
+    return instance.post(url + '/api/refreshdb', data)
   }
 }
