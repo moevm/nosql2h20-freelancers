@@ -48,15 +48,21 @@ export default {
   methods: {
     submitForm () {
       const opt = this.ruleRegister
-      if (opt.login.trim() === '' || opt.password.trim() === '' || opt.checkPassword.trim() === '' || opt.fio.trim() === '') {
+      opt.login = opt.login.toString().trim()
+      opt.password = opt.password.toString().trim()
+      opt.checkPassword = opt.checkPassword.toString().trim()
+
+      if (opt.login === '' || opt.password === '' || opt.checkPassword === '' || opt.fio === '') {
         this.isAlert = true
         this.alertText = 'Ошибка! Заполните все поля'
         this.alertVar = 'danger'
-        return
-      }
-      if (opt.password !== opt.checkPassword) {
+      } else if (opt.password !== opt.checkPassword) {
         this.isAlert = true
         this.alertText = "Пароли не совпадают"
+        this.alertVar = 'danger'
+      } else if (opt.login.length < 3 || opt.password.length < 3 || opt.checkPassword.length < 3) {
+        this.isAlert = true
+        this.alertText = "Логин и пароль не могут быть короче 3 символов"
         this.alertVar = 'danger'
       } else {
         this.$api.UserAdd(opt)
@@ -71,6 +77,10 @@ export default {
                 path: 'login'
               })
             }, 2000)
+          } else if (code === 100) {
+            this.isAlert = true
+            this.alertText = data.msg + ' ' + data.tip
+            this.alertVar = 'warning'
           } else if (code === 200) {
             this.isAlert = true
             this.alertText = data.msg + ' ' + data.tip
